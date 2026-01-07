@@ -54,14 +54,14 @@ classDiagram
     Medicamento "1" --> "N" Prescricao : Compõe
     Prescricao "1" --> "N" RegistroAdministracao : Gera Histórico
 
-    graph TD
-    A[Início / Menu Principal] -->|Input| B{Opções}
-    B -->|Cadastro| C[Dados Mestres: Residentes/Medicamentos]
-    B -->|Processo| D[Prescrição Médica]
+  graph TD
+    A["Início / Menu Principal"] -->|Input| B{"Opções"}
+    B -->|Cadastro| C["Dados Mestres: Residentes/Medicamentos"]
+    B -->|Processo| D["Prescrição Médica"]
     C -.->|Vincula| D
-    B -->|Operação| E[Registro de Administração]
-    E -->|Validação| E1{Identificar Enfermeiro}
-    E1 -->|Sucesso| E2[Baixa no Estoque & Log]
-    E2 --> E3[Alerta: Estoque Baixo?]
-    B -->|Analytics| F[Auditoria de Compliance]
-    F -->|Cálculo| F1[Verificar Interrupção do Tratamento]
+    B -->|Operação| E["Registro de Administração"]
+    E -->|Validação| E1{"Identificar Enfermeiro"}
+    E1 -->|Sucesso| E2["Baixa no Estoque & Log"]
+    E2 --> E3["Alerta: Estoque Baixo?"]
+    B -->|Analytics| F["Auditoria de Compliance"]
+    F -->|Cálculo| F1["Verificar Interrupção do Tratamento"]
