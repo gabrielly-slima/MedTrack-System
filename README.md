@@ -14,6 +14,7 @@ Embora desenvolvido como base acadêmica na disciplina de Algoritmos 1 do primei
 
 ## 📂 Estrutura do Repositório
 
+```bash
 📁 MedTrack/
 │
 ├── 📄 README.md        # Documentação técnica e funcional do projeto
@@ -21,6 +22,7 @@ Embora desenvolvido como base acadêmica na disciplina de Algoritmos 1 do primei
 │
 └── 📁 src/             # Source Code (Código Fonte)
     └── 📄 main.c       # Arquivo principal contendo as Structs e Regras de Negócio
+```
 
 ## ⚙️ Funcionalidades do sistema
 
