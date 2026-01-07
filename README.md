@@ -12,14 +12,15 @@ O **MedTrack** é um programa desenvolvido em **Linguagem C**, com o  objetivo d
 
 Embora desenvolvido como base acadêmica na disciplina de Algoritmos 1 do primeiro semestre de Engenharia de Computação, o projeto foi arquitetado para simular regras de negócio reais de **Health Tech**, focando na integridade dos dados, controle de estoque e na rastreabilidade da administração de medicamentos.
 
-## Estrutura do Repositório 
+## 📂 Estrutura do Repositório
+
 📁 MedTrack/
 │
-├── 📄 README.md        # Documentação do projeto (Você está aqui)
-├── 📄 .gitignore       # Arquivo de exclusão de binários (.exe/.out)
+├── 📄 README.md        # Documentação técnica e funcional do projeto
+├── 📄 .gitignore       # Configuração para ignorar arquivos compilados (.exe/.out)
 │
-└── 📁 src/             # Código Fonte
-    └── 📄 main.c       # Lógica principal do sistema
+└── 📁 src/             # Source Code (Código Fonte)
+    └── 📄 main.c       # Arquivo principal contendo as Structs e Regras de Negócio
 
 ## ⚙️ Funcionalidades do sistema
 
