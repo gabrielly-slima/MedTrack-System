@@ -54,7 +54,7 @@ classDiagram
     Medicamento "1" --> "N" Prescricao : Compõe
     Prescricao "1" --> "N" RegistroAdministracao : Gera Histórico
 
-  graph TD
+graph TD
     A["Início / Menu Principal"] -->|Input| B{"Opções"}
     B -->|Cadastro| C["Dados Mestres: Residentes/Medicamentos"]
     B -->|Processo| D["Prescrição Médica"]
