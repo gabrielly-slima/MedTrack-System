@@ -21,24 +21,27 @@ Embora desenvolvido como base acadêmica na disciplina de Algoritmos 1 do primei
 └── 📁 src/             # Código Fonte
     └── 📄 main.c       # Lógica principal do sistema
 
-## ⚙️ Funcionalidades do Sistema
+## ⚙️ Funcionalidades do sistema
 
-### 1. Gestão de Cadastros e Data Quality
-O sistema possui regras de validação na entrada para garantir a qualidade dos dados:
-* **Validação de Residentes:** O sistema recusa nomes simples ou curtos (regra: > 8 caracteres, composto e sem números) e valida telefones de contato (formato 11/12 dígitos iniciando com '0').
-* **Validação Temporal:** Possui um algoritmo de validação de datas baseado no calendário gregoriano (considerando anos bissextos e dias variáveis por mês).
-* **Cadastro de Medicamentos:** Registro detalhado contendo nome, dosagem, frequência e vínculo com o residente.
+### 1. Validação de Dados
 
-### 2. Prescrição e Controle
-* **Emissão de Prescrição:** Gera um identificador único vinculando um **Residente** a um **Medicamento**.
-* **Controle de Status:** Gerencia automaticamente o estado do tratamento (Flag: *Tomando* / *Interrompido*).
-* **Busca Otimizada:** Permite localizar prescrições tanto pelo **Nome do Paciente** quanto pelo **ID da Prescrição** para agilidade no dia a dia.
+* **Validação de Nomes:** Função `validarNomes()` - Assegura que o input seja um nome composto, sem números e com tamanho mínimo (>8 caracteres).
+* **Validação de Contato:** Função `validarTelefones()` - Verifica formatação padrão (11/12 dígitos) e dígito inicial '0'.
+* **Validação Temporal:** Função `validarDatas()` - Algoritmo baseado no calendário gregoriano para validar dias, meses e anos bissextos.
 
-### 3. Registro de Administração (Rastreabilidade)
-* **Log de Aplicação:** Registra cada dose administrada com carimbo de tempo (Data/Hora) e identifica o **Enfermeiro responsável** pelo procedimento.
-* **Baixa Automática:** A cada registro, o sistema decrementa automaticamente a quantidade do estoque físico vinculado àquela prescrição.
+### 2. Gestão de Cadastros
+* **Cadastro de Residentes:** Função `cadastrarResidentes()` - Coleta e valida dados pessoais.
+* **Cadastro de Medicamentos:** Função `cadastrarMedicamento()` - Registra dosagem, período e quantidade inicial.
+* **Busca Otimizada:** Funções `buscarResidentes()` e `buscarMedicamentos()` utilizam busca linear para encontrar os dados.
 
-### 4. Monitoramento e Alertas (Lógica de Negócio)
-* **Alerta de Estoque Crítico:** Identifica os medicamentos que atingiram **10% ou menos** da capacidade da cartela, sinalizando a necessidade de reposição enquanto o paciente ainda está em tratamento.
-* **Auditoria de Interrupção:** Relatório tabular que cruza dados para listar residentes que interromperam a medicação (Status: *Não*) mas ainda possuem estoque, filtrando casos onde a última administração ocorreu há mais de **7 dias**.
-* **Detecção de Falhas:** Algoritmo que analisa o intervalo entre doses para sinalizar interrupções não planejadas ou esquecimentos.
+### 3. Prescrição e Tratamento
+* **Gerar Prescrição:** Função `cadastrarPrescricaoMedica()` - Gera um identificador único vinculando um **Residente** a um **Medicamento** e inicializa o status como "Tomando".
+* **Consulta de Receitas:** Função `buscarPrescricoes()` - Permite localizar tratamentos ativos pelo nome do paciente ou ID único.
+
+### 4. Rastreabilidade
+* **Registro de Dose:** Função `RegistrarAdministracaoMedicamento()` - Registra cada dose administrada com carimbo de tempo (Data/Hora) e identifica o **Enfermeiro responsável** pelo procedimento.
+* **Baixa Automática:** A cada registro, o sistema decrementa automaticamente a quantidade do estoque físico vinculado a determinada prescrição.
+
+### 5. Monitoramento e alertas
+* **Alerta de Estoque Crítico:** Função `identificarEstoqueBaixo()` - Identifica os medicamentos que atingiram **10% ou menos** da capacidade da cartela, sinalizando necessidade de reposição enquanto o paciente ainda está em tratamento.
+* **Auditoria de Conformidade:** Função `verificarRegistroAdministracao()` - Cruza a data atual com a última administração (`obterUltimoRegistro`) para identificar interrupções de tratamento superiores a 7 dias ou falhas de registro.
