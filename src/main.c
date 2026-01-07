@@ -725,7 +725,7 @@ void preencher(void){
     TpData datas[] = {{10, 5, 1980}, {22, 8, 2006}, {10, 11, 2025}, {18, 11, 2025}};
     
     strcpy(listaResidentes[0].nomeDoResidente, "Maria Silva Pereira");
-    strcpy(listaResidentes[0].contatoDoResponsavel, "013988491606");
+    strcpy(listaResidentes[0].contatoDoResponsavel, "014321548459");
     listaResidentes[0].dataNascimento = datas[0];
     
     strcpy(listaResidentes[1].nomeDoResidente, "Joao da Silva Ferreira");
